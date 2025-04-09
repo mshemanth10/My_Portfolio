@@ -1,0 +1,165 @@
+/* about.css */
+
+/* Root theme variables */
+:root {
+  --primary-bg: #121212;
+  --secondary-bg: #1e1e1e;
+  --text-color: #f5f5f5;
+  --accent-color: #00bcd4;
+  --box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.light-theme {
+  --primary-bg: #ffffff;
+  --secondary-bg: #f2f2f2;
+  --text-color: #121212;
+  --accent-color: #007acc;
+  --box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Basic layout */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--primary-bg);
+  color: var(--text-color);
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* Header */
+header {
+  background-color: var(--secondary-bg);
+  padding: 1.5rem 2rem;
+  text-align: center;
+  position: relative;
+  box-shadow: var(--box-shadow);
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2.5rem;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: var(--accent-color);
+  font-weight: bold;
+  position: relative;
+}
+
+nav ul li a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background: var(--accent-color);
+  left: 0;
+  bottom: -4px;
+  transition: width 0.3s ease;
+}
+
+nav ul li a:hover::after {
+  width: 100%;
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  padding: 0.5rem 1rem;
+  background-color: var(--accent-color);
+  border: none;
+  border-radius: 20px;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-weight: bold;
+  z-index: 1000;
+}
+
+.theme-toggle:hover {
+  background-color: #028d9e;
+}
+
+/* About Section */
+.about-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3rem 1.5rem;
+  animation: slideIn 1s ease;
+}
+
+.about-container img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: var(--box-shadow);
+  margin-bottom: 1.5rem;
+  transition: transform 0.4s ease;
+}
+
+.about-container img:hover {
+  transform: scale(1.05);
+}
+
+.about-text {
+  max-width: 700px;
+  text-align: center;
+  animation: fadeUp 1.2s ease;
+}
+
+.about-text h2 {
+  color: var(--accent-color);
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.about-text p {
+  line-height: 1.7;
+  font-size: 1.1rem;
+  margin: 0.8rem 0;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 1.5rem;
+  background-color: var(--secondary-bg);
+  box-shadow: var(--box-shadow);
+  margin-top: 2rem;
+}
+
+/* Animations */
+@keyframes slideIn {
+  0% {
+    transform: translateY(-40px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
